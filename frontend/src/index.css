@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* --- Base surfaces: ink-navy control room, not pure black --- */
+  --color-ink-950: #05070d;
+  --color-ink-900: #0a0f1a;
+  --color-ink-850: #0e1524;
+  --color-ink-800: #131b2e;
+  --color-ink-700: #1b2540;
+  --color-ink-600: #2c3a5e;
+  --color-ink-500: #3a4668;
+  --color-line: #202b47;
+
+  --color-mist-100: #f4f6fb;
+  --color-mist-300: #c3cbe0;
+  --color-mist-500: #8790ae;
+  --color-mist-600: #6b7492;
+
+  /* --- Semantic severity accents (the signature system) --- */
+  --color-signal-teal: #2dd9c3;
+  --color-signal-teal-dim: #1a5c53;
+  --color-signal-amber: #f5b942;
+  --color-signal-amber-dim: #6b5222;
+  --color-signal-coral: #ff6b6b;
+  --color-signal-coral-dim: #6b2828;
+  --color-signal-critical: #ff3d5a;
+  --color-signal-blue: #5b8def;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-ink-950);
+  color: var(--color-mist-100);
+  font-family: var(--font-display);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(91,141,239,0.08), transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(45,217,195,0.06), transparent 40%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--color-signal-teal);
+  color: var(--color-ink-950);
+}
+
+/* thin custom scrollbar to match the console aesthetic */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--color-ink-900); }
+::-webkit-scrollbar-thumb { background: var(--color-ink-600, #2c3a5e); border-radius: 6px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-500); }
+
+.font-mono-data { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.35); }
+}
+.animate-pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+@keyframes scan-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
