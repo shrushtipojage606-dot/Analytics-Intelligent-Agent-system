@@ -10,11 +10,13 @@ venv/
 backend/analytics.db
 backend/tests/test_analytics.db
 backend/.env
+backend/.env.example
 
 # Node / frontend
 frontend/node_modules/
 frontend/dist/
 frontend/.env
+frontend/.env.example
 frontend/.env.local
 
 # OS / editor
